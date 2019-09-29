@@ -23,11 +23,11 @@ namespace D008.利用TAP工作建立大量並行工作練習
             {
                 var index = string.Format("{0:D2}", (i + 1));
 
-                Task task1 = GetPageAsync(index, 1);
-                Task task2 = GetPageAsync(index, 2);
-
                 tasks[i] = Task.Run(async () =>
                 {
+                    Task task1 = GetPageAsync(index, 1);
+                    Task task2 = GetPageAsync(index, 2);
+
                     try
                     {
                         await Task.WhenAll(task1, task2);
