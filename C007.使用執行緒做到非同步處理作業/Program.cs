@@ -32,6 +32,11 @@ namespace C007.使用執行緒做到非同步處理作業
                 }
                 //Console.WriteLine();
             });
+
+            // Thread 為前景執行緒，改為背景執行緒
+            //thread1.IsBackground = true;
+            //thread2.IsBackground = true;
+
             Console.WriteLine($"啟動執行兩個執行緒");
 
             thread1.Start();
@@ -42,8 +47,9 @@ namespace C007.使用執行緒做到非同步處理作業
 
             Console.WriteLine();
 
-            //Console.WriteLine("Press any key to continue...");
-            //Console.ReadKey();
+            // 若未等待(.Join())，程式會直接繼續執行
+            Console.WriteLine("Press any key to continue...");
+            Console.ReadKey();
         }
     }
 }
