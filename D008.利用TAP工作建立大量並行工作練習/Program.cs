@@ -33,7 +33,7 @@ namespace D008.利用TAP工作建立大量並行工作練習
                     // 取得 Thread ID > Thread.CurrentThread.ManagedThreadId
                     // 偵錯時常用到
                     var tid = String.Format("{0:D2}", Thread.CurrentThread.ManagedThreadId);
-;
+
                     var task2 = client.GetStringAsync(url);
 
 
@@ -54,6 +54,7 @@ namespace D008.利用TAP工作建立大量並行工作練習
 
             var task = Task.WhenAll(tasks);
 
+            // task.IsCompleted 判斷工作是否完成
             while (!task.IsCompleted)
             {
                 Console.WriteLine("*");
