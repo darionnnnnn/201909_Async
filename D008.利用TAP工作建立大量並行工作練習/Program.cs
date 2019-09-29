@@ -71,7 +71,10 @@ namespace D008.利用TAP工作建立大量並行工作練習
 
             if (index.IndexOf("5") >= 0)
             {
-                throw new ArgumentException("5 is invalid");
+                //throw new ArgumentException("5 is invalid");
+
+                // url 錯誤
+                url = url + "123";
             }
 
             var result = await client.GetStringAsync(url);
