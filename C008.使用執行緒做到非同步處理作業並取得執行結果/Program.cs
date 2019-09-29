@@ -13,6 +13,7 @@ namespace C008.使用執行緒做到非同步處理作業並取得執行結果
 
         static void Main(string[] args)
         {
+            // 不使用 lock 可發現 int 沒有 Thread-safety
             int shareData = 0;
 
             Console.WriteLine($"建立新執行緒物件");
@@ -49,11 +50,12 @@ namespace C008.使用執行緒做到非同步處理作業並取得執行結果
 
             thread1.Join();
             thread2.Join();
+
             Console.WriteLine($"執行緒 執行完畢");
             Console.WriteLine($"執行緒 執行結果為 {shareData}");
 
-            //Console.WriteLine("Press any key to continue...");
-            //Console.ReadKey();
+            Console.WriteLine("Press any key to continue...");
+            Console.ReadKey();
         }
     }
 }
