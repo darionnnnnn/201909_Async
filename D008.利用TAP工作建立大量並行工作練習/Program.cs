@@ -11,7 +11,7 @@ namespace D008.利用TAP工作建立大量並行工作練習
     class Program
     {
         //static void Main(string[] args)
-        static Task Main(string[] args)
+        static async Task Main(string[] args)
         {
             string host = "https://lobworkshop.azurewebsites.net";
             string path = "/api/RemoteSource/Source3";
@@ -35,7 +35,7 @@ namespace D008.利用TAP工作建立大量並行工作練習
                     var task1 = client.GetStringAsync(url);
                     var task2 = client.GetStringAsync(url);
 
-                    var resutl = await Task.WhenAll(task1, task2);
+                    await Task.WhenAll(task1, task2);
 
                     Console.WriteLine($"{index}-1 測試 (TID: {tid}) >>>> {DateTime.Now}");
                     //var result = client.GetStringAsync(url).Result;
@@ -52,8 +52,6 @@ namespace D008.利用TAP工作建立大量並行工作練習
 
             Console.WriteLine("Press any key to continue...");
             Console.ReadKey();
-
-            return null;
         }
     }
 }
